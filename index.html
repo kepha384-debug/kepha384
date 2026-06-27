@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-adsense-account" content="ca-pub-9896482107634002">
+    <title>Ma Grâce Te Suffit</title>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9896482107634002"
+     crossorigin="anonymous"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="google_translate_element"></div>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+    
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        if (typeof google !== 'undefined' && google.translate) {
+          new google.translate.TranslateElement({
+            pageLanguage: 'fr',
+            includedLanguages: 'fr,en,pt,es,de,it,la,el,ln,kg,wo,hi,ja,ko,sw,rw,am,iw,ar,ru,zh-CN', 
+            layout: google.translate.TranslateElement.InlineLayout.VERTICAL,
+            autoDisplay: false
+          }, 'google_translate_element');
+          
+          const savedLang = localStorage.getItem('mgts_target_lang');
+          if (savedLang) {
+            updateLabel(savedLang);
+          }
+        }
+      }
+
+      function triggerTranslation(langCode) {
+        localStorage.setItem('mgts_target_lang', langCode);
+        var combo = document.querySelector('.goog-te-combo');
+        if (combo) {
+          combo.value = langCode;
+          combo.dispatchEvent(new Event('change'));
+          combo.dispatchEvent(new Event('input'));
+        }
+        updateLabel(langCode);
+        toggleLanguageMenu();
+        window.dispatchEvent(new CustomEvent('siteLanguageChanged', { detail: langCode }));
+      }
+
+      function toggleLanguageMenu() {
+        const menu = document.getElementById('lang-menu');
+        const btn = document.getElementById('lang-btn');
+        if (!menu || !btn) return;
+        menu.classList.toggle('open');
+        btn.classList.toggle('active');
+      }
+
+      const labels = {
+        'fr': 'Français', 'en': 'English', 'pt': 'Português', 
+        'es': 'Español', 'de': 'Deutsch', 'it': 'Italiano', 
+        'la': 'Latin', 'el': 'Grec',
+        'ln': 'Lingala', 'kg': 'Kikongo', 'wo': 'Wolof', 
+        'hi': 'हिन्दी', 'ja': '日本語', 'ko': '한국어',
+        'sw': 'Kiswahili', 'rw': 'Kinyarwanda', 'am': 'አማርኛ',
+        'iw': 'Hébreu', 'ar': 'العربية', 'ru': 'Русский', 'zh-CN': '中文'
+      };
+
+      function updateLabel(langCode) {
+        const label = document.getElementById('current-lang-label');
+        if (label && labels[langCode]) {
+          label.innerText = labels[langCode];
+        }
+        const options = document.querySelectorAll('.lang-option');
+        options.forEach(opt => {
+            const onclickAttr = opt.getAttribute('onclick');
+            if (onclickAttr) {
+              const match = onclickAttr.match(/'([^']+)'/);
+              const optLang = match ? match[1] : null;
+              if(optLang === langCode) opt.classList.add('selected');
+              else opt.classList.remove('selected');
+            }
+        });
+      }
+
+      window.addEventListener('click', function(e) {
+        const selector = document.getElementById('custom-language-selector');
+        if (selector && !selector.contains(e.target)) {
+           const menu = document.getElementById('lang-menu');
+           const btn = document.getElementById('lang-btn');
+           if (menu) menu.classList.remove('open');
+           if (btn) btn.classList.remove('active');
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  
+  --color-primary: #020617; /* slate-950 */
+  --color-accent: #EAB308; /* yellow-500 */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    @apply bg-slate-950;
+  }
+  
+  body {
+    @apply bg-slate-950 text-slate-200 font-sans relative !top-0 antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+  
+  button, [role="button"], a {
+    @apply cursor-pointer;
+  }
+  
+  *:focus, *:focus-visible {
+    @apply !outline-none;
+  }
+}
+
+@layer components {
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(234, 179, 8, 0.3) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 4px 0;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(234, 179, 8, 0.6);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Translator Styles */
+#translator-container {
+  @apply bg-black border-b border-white/10 sticky top-0 z-[100] h-7 flex items-center justify-end pr-6;
+}
+
+.translate-icon {
+  @apply w-3.5 h-3.5 mr-1.5 text-slate-400;
+}
+
+#custom-language-selector {
+  @apply relative font-sans text-[0.75rem] font-semibold uppercase text-slate-400 cursor-pointer;
+}
+
+#lang-btn {
+  @apply flex items-center gap-1.5 p-0 bg-transparent border-none text-inherit cursor-pointer transition-colors h-7;
+}
+
+#lang-btn:hover, #lang-btn:hover .translate-icon {
+  @apply text-yellow-300;
+}
+
+#lang-chevron {
+  @apply w-2.5 h-1.5 transition-transform duration-200;
+}
+
+#lang-btn.active #lang-chevron {
+  @apply rotate-180;
+}
+
+#lang-btn.active {
+  @apply text-yellow-300;
+}
+
+#lang-menu {
+  @apply hidden absolute top-7 right-0 bg-black/98 backdrop-blur-xl border border-slate-700/50 rounded-b-md shadow-2xl min-w-[160px] max-h-[400px] overflow-y-auto flex-col z-[101];
+}
+
+#lang-menu.open {
+  @apply flex duration-150;
+}
+
+.lang-option {
+  @apply px-4 py-2.5 text-slate-200 cursor-pointer transition-all text-left border-b border-slate-700/20 flex items-center gap-2 text-[0.8rem] !bg-transparent;
+}
+
+.lang-option:last-child {
+  @apply border-b-0;
+}
+
+.lang-option:hover {
+  @apply text-yellow-300 pl-5 !bg-transparent;
+}
+
+.lang-option.selected {
+  @apply text-yellow-300 !bg-transparent;
+}
+
+.goog-te-banner-frame, .goog-te-gadget-icon, .goog-te-combo, #google_translate_element, .skiptranslate, #goog-gt-tt {
+  @apply !hidden !opacity-0 !pointer-events-none !absolute !h-0 !w-0 !overflow-hidden;
+}
+
+/* Modal Table Styles */
+.modal-table {
+  @apply w-full border-collapse my-6 text-[0.75rem] leading-relaxed;
+}
+
+.modal-table th {
+  @apply border border-slate-700/50 bg-slate-800/50 p-2 text-left font-bold text-yellow-500 uppercase tracking-wider;
+}
+
+.modal-table td {
+  @apply border border-slate-700/30 p-2 text-slate-300;
+}
+
+.modal-table-light th {
+  @apply border border-slate-200 bg-slate-50 p-2 text-left font-bold text-slate-900 uppercase tracking-wider;
+}
+
+.modal-table-light td {
+  @apply border border-slate-200 p-2 text-slate-700;
+}
