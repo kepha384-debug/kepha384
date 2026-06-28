@@ -8,6 +8,18 @@
   
   --color-primary: #020617; /* slate-950 */
   --color-accent: #EAB308; /* yellow-500 */
+
+  /* Déclaration de l'animation personnalisée pour Tailwind v4 */
+  --animate-fade-in: fade-in 150ms ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 @layer base {
