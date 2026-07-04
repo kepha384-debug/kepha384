@@ -30,11 +30,11 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-              À propos — MGTS
+              À propos de MGTS
             </h2>
             <div className="h-1 w-12 bg-amber-500 rounded-full" />
             <p className="text-slate-600 leading-relaxed">
-              <strong>MGTS – Ma Grâce Te Suffit</strong> est une plateforme multimédia chrétienne dédiée à l’édification spirituelle, à l’enseignement biblique et à la diffusion de contenus inspirants centrés sur Jésus-Christ.
+              <strong>MGTS – Ma Grâce Te Suffit –</strong> est une plateforme multimédia chrétienne dédiée à l’édification spirituelle, à l’enseignement biblique et à la diffusion de contenus inspirants centrés sur Jésus-Christ.
             </p>
             <p className="text-slate-600 leading-relaxed">
               Notre mission est de rendre accessible, à tous, des ressources de qualité qui nourrissent la foi, encouragent la méditation de la Parole et accompagnent chaque croyant dans sa croissance spirituelle.
