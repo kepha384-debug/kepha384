@@ -5,11 +5,17 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Annule le décalage forcé par Google Translate */
+    padding-top: 0px !important;
   }
   
   body {
     font-family: 'Inter', sans-serif;
-    @apply bg-slate-50 text-slate-800 antialiased selection:bg-amber-500/20 selection:text-amber-800;
+    /* Calibrage sur un fond sombre par défaut pour correspondre à index.html et App.tsx */
+    @apply bg-[#020917] text-slate-200 antialiased selection:bg-amber-500/20 selection:text-amber-200;
+    /* Force le maintien du document tout en haut */
+    top: 0px !important;
+    position: static !important;
   }
 
   /* Barre de défilement moderne */
@@ -17,7 +23,7 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-slate-100;
+    @apply bg-slate-950;
   }
   ::-webkit-scrollbar-thumb {
     background-color: #fbbf24; /* amber-400 */
@@ -27,6 +33,17 @@
   ::-webkit-scrollbar-thumb:hover {
     background-color: #f59e0b; /* amber-500 */
   }
+}
+
+/* --- Correctif d'intégration Google Translate --- */
+/* Masque entièrement la bannière supérieure injectée par Google */
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame,
+.goog-te-banner,
+#goog-te-welcome,
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none !important;
+  visibility: hidden !important;
 }
 
 /* --- Transition de page cinématique et douce --- */

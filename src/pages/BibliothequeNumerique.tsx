@@ -20,7 +20,7 @@ const livresData: Livre[] = [
     description:
       "Une traduction poétique qui restitue le rythme et le sens originel de la langue hébraïque.",
     image:
-      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
+      "https://kepha384.b-cdn.net/Couvertures/andre-chouraqui-bible.jpg",
     pdfUrl: "https://kepha384.b-cdn.net/Bibliotheque/bible%20chouraqui.pdf",
   },
   {
@@ -31,7 +31,7 @@ const livresData: Livre[] = [
     description:
       "Traduction littérale réputée pour sa fidélité aux textes originaux hébreu et grec.",
     image:
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+      "https://kepha384.b-cdn.net/Couvertures/john-Nelson-Darby-Bible-Traduction.png",
     pdfUrl: "https://kepha384.b-cdn.net/Bibliotheque/Bible-Darby.pdf",
   },
   {
@@ -42,7 +42,7 @@ const livresData: Livre[] = [
     description:
       "Ouvrage retraçant le travail de traduction de J.N. Darby et son contexte historique.",
     image:
-      "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
+      "https://kepha384.b-cdn.net/Couvertures/images%20(1)-JN-Darby.jpg",
     pdfUrl:
       "https://kepha384.b-cdn.net/Bibliotheque/fb200bibledarbyetsonhistoire-37441.pdf",
   },
@@ -54,7 +54,7 @@ const livresData: Livre[] = [
     description:
       "Édition complète contenant l'Ancien et le Nouveau Testament avec notes d'études.",
     image:
-      "https://images.unsplash.com/photo-1447069387593-a5de0862481e?auto=format&fit=crop&w=800&q=80",
+      "https://kepha384.b-cdn.net/Couvertures/images%20(1)-JN-Darby.jpg",
     pdfUrl:
       "https://kepha384.b-cdn.net/Bibliotheque/French-Bible-Darby-Version.pdf",
   },

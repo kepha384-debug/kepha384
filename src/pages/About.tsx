@@ -18,7 +18,7 @@ const About = () => {
             À propos de nous
           </h1>
           <p className="mt-4 text-sm md:text-base text-slate-200 max-w-2xl leading-relaxed">
-            La mission, la vision et l'engagement de Ma Grâce Te Suffit
+            Découvrez la mission, la vision et l’engagement de Ma Grâce Te Suffit : une plateforme chrétienne dédiée à inspirer, enseigner et édifier à travers des contenus centrés sur Jésus-Christ. Notre vocation est de rendre accessible des ressources spirituelles de qualité pour accompagner chaque croyant dans sa croissance et sa vie de foi.
           </p>
         </div>
       </div>
@@ -110,7 +110,7 @@ const About = () => {
             <ul className="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside">
               <li>Une bibliothèque complète de ressources chrétiennes accessibles à tous.</li>
               <li>Une plateforme moderne, intuitive et agréable à utiliser.</li>
-              <li>Un écosystème spirituel où la créativité chrétienne is valorisée.</li>
+              <li>Un écosystème spirituel où la créativité chrétienne est valorisée.</li>
               <li>Un lieu de croissance, de transformation et d’encouragement pour les croyants.</li>
               <li>Un pont entre la foi et les médias, afin de toucher le plus grand nombre avec l’Évangile.</li>
             </ul>
@@ -122,6 +122,30 @@ const About = () => {
               alt="Lumière spirituelle" 
               className="w-full h-full object-cover"
             />
+          </div>
+        </div>
+
+        {/* Bloc 4 : Engagement de MGTS */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-t border-slate-200/60 pt-16">
+          <div className="h-96 md:h-[450px] rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 lg:order-1 order-2">
+            {/* Image d'illustration sur l'unité et la communauté */}
+            <img 
+              src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=80" 
+              alt="Engagement et unité chrétienne" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="space-y-6 lg:order-2 order-1">
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
+              Engagement de MGTS
+            </h2>
+            <div className="h-1 w-12 bg-amber-500 rounded-full" />
+            <p className="text-slate-600 leading-relaxed">
+              <strong>MGTS s’engage</strong> à offrir un espace spirituel ouvert à tous les chrétiens, quelles que soient leurs traditions : catholiques, orthodoxes, protestants, évangéliques et autres communautés de foi. Notre plateforme rassemble des contenus qui mettent en lumière l’essentiel de l’Évangile et souhaite réunir les croyants de tous horizons autour de la Parole, afin que chacun puisse s’y retrouver, se ressourcer et grandir dans sa relation avec Jésus-Christ.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              Nous veillons à diffuser des ressources authentiques, respectueuses de la Parole de Dieu, centrées sur Christ et porteuses d’édification. Notre engagement repose sur la fidélité biblique, l’excellence des contenus, la sécurité spirituelle et le désir de servir l’unité du Corps de Christ.
+            </p>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Play } from "lucide-react";
+import { Play, ChevronLeft } from "lucide-react";
 
 const documentairesData = [
   {
@@ -29,10 +29,63 @@ const documentairesData = [
 ];
 
 const Documentaires = () => {
-  const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null);
+  const [activeDoc, setActiveDoc] = useState<typeof documentairesData[0] | null>(null);
 
+  // Vue Cinéma Plein Écran (si un documentaire est sélectionné)
+  if (activeDoc) {
+    return (
+      <div className="bg-black text-white min-h-screen flex flex-col animate-page-fade">
+        {/* En-tête de retour style Angel Studios */}
+        <div className="bg-[#020917] border-b border-white/5 py-4 px-6 md:px-12 flex items-center">
+          <button
+            onClick={() => setActiveDoc(null)}
+            className="flex items-center gap-2 text-sm text-slate-400 hover:text-white font-medium transition duration-200"
+          >
+            <ChevronLeft size={16} className="stroke-[2.5px]" />
+            <span>Regarder</span>
+            <span className="text-slate-600">/</span>
+            <span className="text-slate-300 font-semibold">{activeDoc.title}</span>
+          </button>
+        </div>
+
+        {/* Zone de lecture vidéo */}
+        <div className="flex-grow flex flex-col justify-center bg-black py-4 md:py-8">
+          <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8">
+            <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-zinc-950 shadow-2xl border border-white/5">
+              <iframe
+                src={activeDoc.videoUrl.replace("/play/", "/embed/")}
+                loading="lazy"
+                className="w-full h-full border-none"
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                allowFullScreen
+              />
+            </div>
+
+            {/* Fiche technique sous la vidéo */}
+            <div className="mt-8 max-w-4xl mx-auto space-y-3 px-2">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold tracking-wider uppercase px-2.5 py-0.5 border border-amber-500/30 rounded-md bg-amber-500/10 text-amber-500">
+                  Documentaire
+                </span>
+                <span className="text-sm text-slate-400 font-semibold">
+                  {activeDoc.year}
+                </span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                {activeDoc.title}
+              </h2>
+              <p className="text-sm md:text-base text-slate-400 leading-relaxed max-w-3xl pt-2">
+                {activeDoc.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Vue Grille Standard (par défaut)
   return (
-    /* Modification : Fond sombre #020917 et texte blanc */
     <div className="bg-[#020917] text-white min-h-screen animate-page-fade">
       
       {/* Bannière de style AEBC */}
@@ -67,8 +120,7 @@ const Documentaires = () => {
           {documentairesData.map((doc) => (
             <div 
               key={doc.id}
-              onClick={() => setActiveVideoUrl(doc.videoUrl)}
-              /* Ajout de text-slate-800 pour préserver la lisibilité interne de la carte claire */
+              onClick={() => setActiveDoc(doc)}
               className="group relative bg-[#FAFAFA] border border-white/10 rounded-xl overflow-hidden cursor-pointer hover:border-slate-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col h-full text-slate-800"
             >
               <div className="relative aspect-video w-full overflow-hidden bg-slate-100">
@@ -109,36 +161,6 @@ const Documentaires = () => {
           ))}
         </div>
       </section>
-
-      {/* Modal de Lecture de Vidéo */}
-      {activeVideoUrl && (
-        <div 
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300"
-          onClick={() => setActiveVideoUrl(null)}
-        >
-          <div 
-            className="relative bg-slate-950 border border-slate-800 rounded-2xl w-full max-w-4xl overflow-hidden aspect-video shadow-2xl animate-page-fade"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button 
-              onClick={() => setActiveVideoUrl(null)}
-              className="absolute top-4 right-4 z-50 p-2 bg-black/60 hover:bg-black/80 rounded-full text-white transition-colors"
-              aria-label="Fermer le lecteur"
-            >
-              <X size={20} />
-            </button>
-            
-            <iframe
-              src={activeVideoUrl.replace("/play/", "/embed/")}
-              loading="lazy"
-              className="w-full h-full border-none"
-              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      )}
-
     </div>
   );
 };

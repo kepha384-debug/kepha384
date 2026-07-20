@@ -11,15 +11,18 @@ import {
   Youtube,
   Heart,
   Image,
-  MessageSquare
+  MessageSquare,
+  Handshake,
+  ExternalLink
 } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-900 pt-12 pb-6 mt-auto">
-      <div className="max-w-[1380px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      {/* Grille adaptative : 1 colonne (mobile), 2 colonnes (tablette), 5 colonnes (desktop) */}
+      <div className="max-w-[1380px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
 
-        {/* Identité */}
+        {/* Identité (prend 2 colonnes) */}
         <div className="md:col-span-2 space-y-5">
           <div className="flex items-center gap-3">
             <img
@@ -137,13 +140,44 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              {/* Le lien pointe vers /legal de manière parfaitement synchronisée avec la route de App.tsx */}
               <Link to="/legal" className="hover:text-amber-400 transition flex items-center gap-2">
                 <FileText size={14} /> Mentions légales
               </Link>
             </li>
           </ul>
         </div>
+
+        {/* Partenaires (Nouvelle colonne ajoutée) */}
+        <div>
+          <h3 className="text-white font-semibold text-sm tracking-wider uppercase mb-4 flex items-center gap-2">
+            <Handshake size={14} className="text-amber-500" /> Partenaires
+          </h3>
+          <ul className="space-y-2.5 text-sm">
+            <li>
+              <a
+                href="https://www.maria-valtorta.org/index.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-amber-400 transition flex items-center gap-2"
+              >
+                <ExternalLink size={14} className="flex-shrink-0" />
+                Maria Valtorta (FR)
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://mariavaltorta.com/fr/home-francais/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-amber-400 transition flex items-center gap-2"
+              >
+                <ExternalLink size={14} className="flex-shrink-0" />
+                Fondation Maria Valtorta
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </div>
 
       {/* Bas de page */}
